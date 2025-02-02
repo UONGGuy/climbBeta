@@ -1,0 +1,16 @@
+alembic @ file:///io/buildout/croot/alembic_1735842921223/work
+blinker @ file:///croot/blinker_1737448726027/work
+click @ file:///work/perseverance-python-buildout/croot/click_1728387069202/work
+Flask @ file:///croot/flask_1737454299809/work
+Flask-Migrate @ file:///home/conda/feedstock_root/build_artifacts/flask-migrate_1736546704161/work
+Flask-SQLAlchemy @ file:///io/buildout/croot/flask-sqlalchemy_1735869592468/work
+greenlet @ file:///croot/greenlet_1733860072744/work
+itsdangerous @ file:///io/buildout/croot/itsdangerous_1732920215085/work
+Jinja2 @ file:///croot/jinja2_1737760107953/work
+Mako @ file:///work/perseverance-python-buildout/croot/mako_1728393091416/work
+MarkupSafe @ file:///croot/markupsafe_1736366905094/work
+setuptools==75.8.0
+SQLAlchemy @ file:///croot/sqlalchemy_1736565039440/work
+typing_extensions @ file:///croot/typing_extensions_1734714854207/work
+Werkzeug @ file:///croot/werkzeug_1737448706492/work
+wheel==0.44.0
