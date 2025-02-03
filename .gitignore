@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database files
+*.sqlite3
+*.db
+
+# Environment files
+.env
+.venv/
+venv/
+ENV/
+env/
+    
+# VS Code settings
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Other files
+*.log
+*.csv
+*.dat
+*.sqlite
+*.pdb
+*.pkl
+*.stackdump
+*.gz
+
+# MacOS specific files
+.DS_Store
+
+# Linux specific files
+*~
