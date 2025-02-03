@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ climbing_gym.name }}</h2>
+
+{% if climbing_gym.climb_boards %}
+<p>Climbing Boards: 
+    {% for board in climbing_gym.climb_boards %}
+    {{ board.board_type }} (Adjustable: {{ board.is_adjustable }}, Angle: {{ board.angle_of_incline }}°)
+    {% if not loop.last %}, {% endif %}
+    {% endfor %}
+</p>
+{% else %}
+<p>No Climbing Boards Available</p>
+{% endif %}
+
+<a href="{{ url_for('index') }}">Back to Home</a>
+
+{% endblock %}

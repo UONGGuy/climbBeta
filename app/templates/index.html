@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome to ClimbBeta!</h2>
+<p>Your guide to climbing gyms in London!</p>
+<ul>
+  {% for climbing_gym in climbing_gyms %}
+  <li>
+    <a href="{{ url_for('climbing_gym_details', climbing_gym_id=climbing_gym.id) }}">{{ climbing_gym.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

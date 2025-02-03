@@ -74,28 +74,38 @@ Admin Panel: Access the admin panel to manage content. (Additional)
 ## Project Structure
 
 ```bash
-climbbeta/
+climbBeta/
 │
-├── app.py                   # Main application file
-├── models.py                # Database models
-├── templates/               # HTML templates
-│   ├── base.html            # Base template
-│   ├── index.html           # Homepage
-│   ├── gym.html             # Climbing gym details page
+├── app/                        
+│   ├── __init__.py             # Initialises the Flask app and sets configurations
+│   ├── models.py               # Defines SQLAlchemy models
+│   ├── enums.py                # Contains enums for the app
+│   ├── routes.py               # Defines Flask routes/endpoints
+│   ├── templates/              # HTML templates for rendering web pages
+│   │   ├── base.html           # Base HTML template for layout
+│   │   ├── index.html          # Homepage template
+│   │   ├── climbing_gym.html   # Climbing gym details template
+│   ├── __main__.py             # Entry point to run the Flask app
 │
-├── static/                  # Static files (CSS, JS, images)
-│   ├── css/
-│   ├── js/
+├── config/                     
+│   ├── __init__.py             # Initialises the config module
+│   ├── config.py               # Default config settings
+│   ├── test_config.py          # Testing config settings
 │
-├── tests/                   # Tests directory
-│   ├── __init__.py          # Makes this a package
-│   ├── test_app.py          # Tests for the main application
-│   ├── test_models.py       # Tests for database models
-│   ├── test_routes.py       # Tests for routes
+├── database/                   
+│   ├── __init__.py             # Initialises the database module
+│   ├── seed.py                 # Seeds the database with data
+│   ├── drop_tables.py          # Drops and recreates database tables
 │
-├── requirements.txt         # List of dependencies
-├── environment.yml          # Conda environment file
-└── README.md                # Project documentation
+├── tests/                      
+│   ├── __init__.py             # Initialises the tests module
+│   ├── base_test.py            # Base test class with common setup/teardown
+│   ├── test_models.py          # Tests for SQLAlchemy models
+│   ├── test_routes.py          # Tests for Flask routes
+│
+├── requirements.txt            # Project dependencies
+├── environment.yml             # Conda environment file with dependencies
+└── README.md                   # Project description and setup instructions
 ```
 
 ## Contributing
@@ -103,6 +113,16 @@ climbbeta/
 Contributions are welcome!
 Please fork this repository and submit a pull request for any changes you would like to make.
 Please understand responses may be slow as I am still new to collaborating on GitHub projects.
+
+### Running unit tests
+
+It would be great if you could write an accompanying unit test for each new functionality added so we can ensure that code can be well maintained and errors spotted quickly!
+
+To run the full suite of unit tests, call:
+
+```bash
+python -m unittest discover tests
+```
 
 ## License
 
