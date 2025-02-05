@@ -17,7 +17,9 @@ Users can browse gyms, view details, and submit ratings and reviews.The project 
 - Browse climbing gyms in London
 - View detailed information about each gym including available facilities, training boards, nearest transport options, and recurring events
 
-### Additional features
+### Additional features (works planned)
+- Page for beginners informing them of climbing gym safety
+- Include database for links to all waivers for all relevant activities (current offering is adult bouldering form only)
 - Submit ratings and reviews for gyms
 - User authentication and authorization
 - Admin panel for managing content
@@ -78,6 +80,7 @@ climbBeta/
 │
 ├── app/                        
 │   ├── __init__.py             # Initialises the Flask app and sets configurations
+│   ├── __main__.py             # Main execution logic allowing python -m app
 │   ├── models.py               # Defines SQLAlchemy models
 │   ├── enums.py                # Contains enums for the app
 │   ├── routes.py               # Defines Flask routes/endpoints

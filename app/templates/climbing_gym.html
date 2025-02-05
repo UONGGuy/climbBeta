@@ -2,9 +2,9 @@
 {% block content %}
 <h2>{{ climbing_gym.name }}</h2>
 
-{% if climbing_gym.climb_boards %}
+{% if climbing_gym.boards %}
 <p>Climbing Boards: 
-    {% for board in climbing_gym.climb_boards %}
+    {% for board in climbing_gym.boards %}
     {{ board.board_type }} (Adjustable: {{ board.is_adjustable }}, Angle: {{ board.angle_of_incline }}°)
     {% if not loop.last %}, {% endif %}
     {% endfor %}
