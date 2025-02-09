@@ -50,11 +50,9 @@ Users can browse gyms, view details, and submit ratings and reviews.The project 
     conda activate climbBeta
     ```
 
-3. **Set up the database**:
+3. **Set up the database** (must be run before website creation):
     ```bash
-    flask db init
-    flas gb migrate -m "Initial migration"
-    flas db upgrade
+    python database/seed.py
     ```
 
 4. **Run the application**:
