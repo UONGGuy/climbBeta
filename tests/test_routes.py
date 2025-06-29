@@ -2,8 +2,7 @@
 import unittest
 from tests.base_test import BaseTestCase, base_set_up_module
 from app import db
-from app.models import ClimbingGym, ClimbingBoard, Franchiser
-from app.enums import eClimbBoard, eFranchiser
+from app.models import *
 
 def setUpModule():
     base_set_up_module(__name__)
@@ -16,6 +15,7 @@ class RouteTestCase(BaseTestCase):
 
         # Seed the database
         franchiser = Franchiser(name=eFranchiser.CITY_BOULDERING)
+        db.session.add(franchiser)
         gym = ClimbingGym(name="Test Gym", franchiser=franchiser)
         board = ClimbingBoard(board_type=eClimbBoard.KILTER_BOARD, is_adjustable=True, angle_of_incline=45.0)
         gym.boards.append(board)

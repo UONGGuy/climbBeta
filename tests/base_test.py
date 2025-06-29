@@ -1,6 +1,7 @@
 # tests/base_test.py
 import unittest
 from app import create_app, db
+from config.testing import TestingConfig
 
 def base_set_up_module(module_name):
     print(f"Running tests in module: {module_name}")
@@ -8,7 +9,7 @@ def base_set_up_module(module_name):
 class BaseTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.app = create_app(config_class='config.test_config.TestConfig')
+        self.app = create_app(config_class=TestingConfig)
         self.app_context = self.app.app_context()
         self.app_context.push()
         db.create_all()

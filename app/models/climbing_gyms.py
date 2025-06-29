@@ -31,8 +31,8 @@ class ClimbingGym(BaseModel):
     name: Mapped[str] = mapped_column(db.String(100), nullable=False) # Climbing Gym name
     franchiser_id: Mapped[int] = mapped_column(db.ForeignKey('franchiser.id')) # Franchiser unique ID
 
-    def __init__(self, name: str, franchiser_id: int):
+    def __init__(self, name: str, franchiser: eFranchiser):
         super().__init__()
         self.name = name
-        self.franchiser_id = franchiser_id
+        self.franchiser = franchiser
         self.boards = []

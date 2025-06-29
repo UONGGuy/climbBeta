@@ -1,12 +1,11 @@
 # app/__init__.py
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config.config import Config
-from config.test_config import TestConfig
+from config.development import DevelopmentConfig
 
 db = SQLAlchemy()
 
-def create_app(config_class=Config):
+def create_app(config_class=DevelopmentConfig):
     print("Creating Flask app") # Debug
     app = Flask(__name__)
     app.config.from_object(config_class)
