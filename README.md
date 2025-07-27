@@ -1,7 +1,7 @@
 # ClimbBeta
 
 ClimbBeta is a web application that provides information about climbing gyms in London.
-Users can browse gyms, view details, and submit ratings and reviews.The project is built using Flask, with a SQLite database and hosted on InfinityFree.
+Users can browse gyms, view details, and submit ratings and reviews.The project is built using Flask, with a SQLite database and to be hosted on InfinityFree.
 
 ## Table of Contents
 - [Features](#features)
@@ -33,9 +33,8 @@ Users can browse gyms, view details, and submit ratings and reviews.The project 
 ### Setup
 1. **Clone the repository**:
     ```bash
-    mkdir climbBeta
+    # Navigate to the directory you want the repository to live in and on your terminal, input the below command:
     git clone https://github.com/UONGGuy/climbBeta.git
-    cd climbBeta
     ```
     
 2. **Create and install dependencies to a virtal environment**:
@@ -57,6 +56,9 @@ Users can browse gyms, view details, and submit ratings and reviews.The project 
 
 4. **Run the application**:
     ```bash
+    # EITHER
+    python run.py
+    # OR
     flask run
     ```
     Visit ``http://127.0.0.1.5000`` in your web browser to see your application in action.
@@ -76,37 +78,45 @@ Admin Panel: Access the admin panel to manage content. (Additional)
 ```bash
 climbBeta/
 │
-├── app/                        
-│   ├── __init__.py             # Initialises the Flask app and sets configurations
-│   ├── __main__.py             # Main execution logic allowing python -m app
-│   ├── models.py               # Defines SQLAlchemy models
-│   ├── enums.py                # Contains enums for the app
-│   ├── routes.py               # Defines Flask routes/endpoints
-│   ├── templates/              # HTML templates for rendering web pages
-│   │   ├── base.html           # Base HTML template for layout
-│   │   ├── index.html          # Homepage template
-│   │   ├── climbing_gym.html   # Climbing gym details template
-│   ├── __main__.py             # Entry point to run the Flask app
+├── app                                     # Management of core website assets and functionality
+│   ├── __init__.py                         # Initialises the Flask app and sets configurations
+│   ├── models                              # Defines SQLAlchemy models
+│   │   ├── __init__.py
+│   │   ├── association_tables.py
+│   │   ├── base_model.py
+│   │   ├── climbing_gym_features.py
+│   │   ├── climbing_gyms.py
+│   │   └── enums.py
+│   ├── routes.py                           # Manages paths between URLs and functions handling calls when a page is visited
+│   └── templates                           # Templates for the types of webpages to be generated
+│       ├── base.html
+│       ├── climbing_gym.html
+│       └── index.html
 │
-├── config/                     
-│   ├── __init__.py             # Initialises the config module
-│   ├── config.py               # Default config settings
-│   ├── test_config.py          # Testing config settings
+├── config                                  # Contain different website environment configurations
+│   ├── __init__.py
+│   ├── development.py
+│   ├── production.py
+│   └── testing.py
 │
-├── database/                   
-│   ├── __init__.py             # Initialises the database module
-│   ├── seed.py                 # Seeds the database with data
-│   ├── drop_tables.py          # Drops and recreates database tables
+├── database                                # Scripts allowing the website database to be managed (currently manual)
+│   ├── __init__.py
+│   ├── drop_tables.py
+│   └── seed.py
 │
-├── tests/                      
-│   ├── __init__.py             # Initialises the tests module
-│   ├── base_test.py            # Base test class with common setup/teardown
-│   ├── test_models.py          # Tests for SQLAlchemy models
-│   ├── test_routes.py          # Tests for Flask routes
+├── tests                                   # Contains unit tests for website functionality
+│   ├── __init__.py
+│   ├── base_test.py
+│   ├── conftest.py
+│   ├── test_models.py
+│   └── test_routes.py
 │
-├── requirements.txt            # Project dependencies
-├── environment.yml             # Conda environment file with dependencies
-└── README.md                   # Project description and setup instructions
+├── check_tables.py                         # Display existing database tables in terminal
+├── environment.yml                         # Package requirements file for Anaconda
+├── requirements.txt                        # Package requirements file for pip
+├── README.md                               # README file
+└── run.py                                  # Script to run website
+
 ```
 
 ## Contributing

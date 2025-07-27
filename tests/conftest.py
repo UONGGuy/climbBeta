@@ -1,13 +1,13 @@
 # conftest.py
 import unittest
 from app import create_app, db
-from config.test_config import TestConfig
+from config.testing import TestingConfig
 
 class TestConfigTestCase(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
-        cls.app = create_app(config_class=TestConfig)
+        cls.app = create_app(config_class=TestingConfig)
         cls.app_context = cls.app.app_context()
         cls.app_context.push()
         cls.client = cls.app.test_client()
