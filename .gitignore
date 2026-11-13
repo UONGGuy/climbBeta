@@ -1,0 +1,3 @@
+# clasp local config
+.clasp.json
+extractSheetToJSON_old.js

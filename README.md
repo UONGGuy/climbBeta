@@ -6,7 +6,7 @@ A simple, up-to-date directory of climbing gyms in London.
 
 **In scope:**
 - List every climbing gym in London
-- Each gym shows: name, borough, website, notes, last verified date
+- Each gym shows: name, franchiser, location, website (as text), last verified date
 - Data editable by me and friends via Google Sheets — no code changes to update
 - Data converted from Google Sheets to JSON
 
@@ -15,30 +15,38 @@ A simple, up-to-date directory of climbing gyms in London.
 - Maps, search, filters
 - Images or photo galleries
 - User submissions
+- Rendering board features, facilities, opening hours, etc. (data is carried but not displayed)
 
 **Done when:** live URL lists 15–20 gyms and adding a new one takes under 2 minutes via the sheet.
 
 ## Data
 
-Source of truth: a Google Sheet, exposed as JSON via Google Apps Script.
+Source of truth: a Google Sheet (`ClimbingGyms` tab), exposed as JSON via Google Apps Script.
 
-Endpoint: `https://script.google.com/macros/s/XXXX/exec`
+- **Endpoint:** `https://script.google.com/macros/s/AKfycbxaq0YhpbUiV2XYokvIAdU_g99c7dZHI7xre0kPpfJfIKQu90cEJITSHrItw5Y7mSQ-Eg/exec`
+- **Row layout:** Row 1 = title/notes (ignored), Row 2 = headers, Row 3+ = one gym per row.
+- **Headers** are camelCased in the JSON by the script (e.g. `Climbing offered` → `climbingOffered`).
+- **`id`** is auto-derived from `Name` if blank (lowercase, hyphenated).
+- **`last_verified`** becomes `lastVerified` (ISO date string or blank).
+- **`Website`** is a label, not a URL. The site renders it as text. Real links come later via a `Website URL` column.
 
-Columns: `id, name, borough, website, notes, last_verified`
+### Updating the data
+
+1. Edit the Google Sheet. Friends can do this too.
+2. That's it — the `/exec` endpoint reads the sheet live. No export, no commit needed for data changes.
+
+### Updating the Apps Script
+
+The script lives in Google Apps Script, synced to this repo via `clasp`.
+
+- Local files: `Code.gs`, `appsscript.json` (committed); `.clasp.json` (gitignored).
+- After editing locally: `clasp push`.
+- Then **redeploy**: Apps Script → Deploy → Manage deployments → edit (pencil) → **Version: New version** → Deploy.
+  - **Never create a new deployment** — that changes the `/exec` URL and breaks the frontend.
+- The `/exec` URL stays stable across new versions.
 
 ## Running locally
 
-(to be added once the frontend is scaffolded)
-
-## Ideas (don't build yet)
-
-- Page per gym
-- Facilities per gym
-- Filter by borough
-- Map pins
-- Freshness indicator on stale entries
-- Info pages for beginners
-- Database links for all waivers for all relevant activities
-- Submit ratings and reviews
-- User authentication and authorisation.
-- Generate revenue from traffic volume?
+```bash
+npm install
+npm run dev
