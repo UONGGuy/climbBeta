@@ -41,3 +41,4 @@ Columns: `id, name, borough, website, notes, last_verified`
 - Database links for all waivers for all relevant activities
 - Submit ratings and reviews
 - User authentication and authorisation.
+- Generate revenue from traffic volume?
